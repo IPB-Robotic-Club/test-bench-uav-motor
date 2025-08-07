@@ -2,8 +2,21 @@ import ast
 import json
 import re
 
+def is_boot_log(line):
+    boot_keywords = ["boot:", "load:", "rst:", "entry", "SPI_FAST_FLASH_BOOT"]
+    return any(key in line for key in boot_keywords)
+
+def is_data_line(line):
+    return line.startswith("DATA:") or "pwm" in line and "gram" in line
+
 def parse_data(line):
     line = line.strip()
+
+    if is_boot_log(line):
+        return None
+    
+    if line.startswith("DATA:"):
+        line = line[5:].strip()
 
     # 1. Coba parsing JSON
     try:
