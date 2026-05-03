@@ -27,17 +27,9 @@ python -m venv .venv
 
 ### Activate the virtual environment
 
-- Windows PowerShell:
-  ```powershell
-  .\.venv\Scripts\Activate.ps1
+- Windows VS Code:
   ```
-- Windows Command Prompt:
-  ```cmd
-  .venv\Scripts\activate.bat
-  ```
-- macOS / Linux:
-  ```bash
-  source .venv/bin/activate
+  venv\Scripts\activate
   ```
 
 ### Install requirements
@@ -45,13 +37,17 @@ python -m venv .venv
 ```bash
 pip install -r requirements.txt
 ```
+you also can do it manually
+```bash
+pip install streamlit pyserial pandas
+```
 
 ### Firmware
 
-- ESP32-compatible board
+- ESP32 DOIT DEVKIT V1
 - HX711 load cell amplifier
-- ESC/motor
-- Load cell mounted to the thrust test rig
+- ESC & motor
+- LiPo Battery
 
 ## Running the Dashboard
 
