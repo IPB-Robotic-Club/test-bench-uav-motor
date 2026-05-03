@@ -1,17 +1,12 @@
 # Test Bench Brushless Motor
 
-# IRC Motor Testing Dashboard
-
 This project is a thrust test bench system for motor and propeller testing. It includes a Python Streamlit dashboard (`app.py`) for serial communication, data logging, and live plotting, along with ESP32/Arduino firmware in `firmware_ver2_ready/firmware_ver2_ready.ino`.
 
 ## Repository Structure
 
 - `app.py` - Streamlit dashboard application.
-- `firmware_ver2_ready/firmware_ver2_ready.ino` - ESP32 firmware source for motor and load cell control.
-- `firmware_ver1/` - older firmware version.
-- `load_cell_calib/` - load cell calibration sketch.
-- `build/`, `dist/` - build outputs and packaging artifacts.
-- `run.py`, `dashboard.py`, `new.py`, `ready.py` - extra scripts in the workspace.
+- `firmware/version1_ready.ino` - ESP32 firmware source for motor and load cell control.
+- `firmware/load_cell_calib.ino` - load cell calibration sketch.
 
 ## Overview
 
@@ -22,16 +17,40 @@ The dashboard communicates with the firmware via USB serial at 115200 baud. The 
 ### Python
 
 - Python 3.8+ recommended
-- Install dependencies:
-  ```bash
-  pip install streamlit pyserial pandas
+- A Python virtual environment is recommended for this project.
+
+### Create a virtual environment
+
+```bash
+python -m venv .venv
+```
+
+### Activate the virtual environment
+
+- Windows PowerShell:
+  ```powershell
+  .\.venv\Scripts\Activate.ps1
   ```
+- Windows Command Prompt:
+  ```cmd
+  .venv\Scripts\activate.bat
+  ```
+- macOS / Linux:
+  ```bash
+  source .venv/bin/activate
+  ```
+
+### Install requirements
+
+```bash
+pip install -r requirements.txt
+```
 
 ### Firmware
 
 - ESP32-compatible board
 - HX711 load cell amplifier
-- ESC / motor
+- ESC/motor
 - Load cell mounted to the thrust test rig
 
 ## Running the Dashboard
@@ -44,6 +63,9 @@ The dashboard communicates with the firmware via USB serial at 115200 baud. The 
    ```
 4. In the app, select the correct COM port.
 5. Click `Connect`.
+6. Click `Start`.
+
+make sure the platform is secure!
 
 ## Dashboard Features
 
@@ -57,7 +79,7 @@ The dashboard communicates with the firmware via USB serial at 115200 baud. The 
 
 ## Firmware Details
 
-The firmware is implemented in `firmware_ver2_ready/firmware_ver2_ready.ino`.
+The firmware is implemented in `firmware/version1_ready.ino`.
 
 ### Pin Configuration
 
@@ -107,9 +129,3 @@ The firmware listens for newline-terminated serial commands and responds with st
 - The dashboard stores the last 300 data points and last 100 log lines.
 - The serial monitor in `app.py` shows the newest logs first.
 - If the firmware is not ready, it reports `HX711_NOT_READY`.
-
-## Next Steps
-
-- Add hardware wiring diagrams.
-- Add setup instructions for the ESP32 board and HX711 library.
-- Add a calibration guide for the load cell.
