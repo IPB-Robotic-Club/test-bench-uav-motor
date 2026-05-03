@@ -1,6 +1,8 @@
 # Test Bench Brushless Motor
 
-This project is a thrust test bench system for motor and propeller testing. It includes a Python Streamlit dashboard (`app.py`) for serial communication, data logging, and live plotting, along with ESP32/Arduino firmware in `firmware_ver2_ready/firmware_ver2_ready.ino`.
+This project is a thrust test bench system for motor and propeller testing. It includes a Python Streamlit dashboard (`app.py`) for serial communication, data logging, and live plotting, along with ESP32/Arduino firmware in `firmware/version1_ready.ino`.
+
+<img src="docs/main-dashboard.jpeg" alt="Dashboard screenshot" width="700">
 
 ## Repository Structure
 
@@ -62,6 +64,8 @@ pip install streamlit pyserial pandas
 6. Click `Start`.
 
 make sure the platform is secure!
+
+<img src="docs/graph.jpeg" alt="Dashboard screenshot" width="700">
 
 ## Dashboard Features
 
