@@ -96,6 +96,8 @@ The firmware is implemented in `firmware/version1_ready.ino`.
 - `STEP_SIZE` = 5
 - `SAMPLING_MS` = 1000
 
+<img src="docs/wiring_diagram.jpg" alt="Dashboard screenshot" width="700">
+
 ### Communication Protocol
 
 The firmware listens for newline-terminated serial commands and responds with status or JSON data.
